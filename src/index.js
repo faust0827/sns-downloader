@@ -137,7 +137,10 @@ export default {
     }
 
     // Serve HTML from base64
-    const html = atob(HTML_B64);
+    const binary = atob(HTML_B64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    const html = new TextDecoder('utf-8').decode(bytes);
     return new Response(html, {
       headers: { 'Content-Type': 'text/html; charset=utf-8' },
     });
