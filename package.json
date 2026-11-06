@@ -1,6 +1,12 @@
 {
-  "name": "sns-downloader",
+  "name": "sns-downloader-web",
   "version": "1.0.0",
   "description": "SNS 미디어 다운로드 도구",
-  "private": true
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
 }
